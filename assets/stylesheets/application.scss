@@ -7,4 +7,11 @@ body {
 .flat-list {
   display: flex;
   flex-wrap: wrap;
+  //to display 2 flat next to each other
+}
+
+.flat {
+	flex:50% 0 0;
+	cursor: pointer;
+	border: 6px solid transparent;
 }
