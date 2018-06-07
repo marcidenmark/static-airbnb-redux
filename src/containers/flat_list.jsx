@@ -9,6 +9,7 @@ class FlatList extends Component {
 	componentWillMount() {
 		this.props.setFlats();
 	}
+	//setFlats method coming from actions, index.js
 	// in componentwillmount
 	// When the component mounts
 	// will trigger the action in redux
