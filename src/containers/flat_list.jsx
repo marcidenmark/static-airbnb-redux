@@ -6,19 +6,10 @@ import Flat from '../components/flat';
 import { setFlats } from '../actions';
 
 class FlatList extends Component {
-
-	render () {
-		return (
-		<div className="flat-list col-sm-7">
-		<p> dsafdsfad </p>
-		</div>
-		);
-	}
-
-	componenentWillMount() {
+	componentWillMount() {
 		this.props.setFlats();
 	}
-	// the above
+	// in componentwillmount
 	// When the component mounts
 	// will trigger the action in redux
 	// fetch flats from api
@@ -28,7 +19,9 @@ class FlatList extends Component {
 	render() {
 		return (
 			<div className="flat-list col-sm-7">
-				{this.props.flats.map((flat, index) =>  <Flat flat={flat} key={flat.name} />)}
+				{this.props.flats.map((flat, index) =>  {
+					return <Flat flat={flat} key={flat.name} />;
+				})}
 			</div>
 			);
 	}
