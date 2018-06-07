@@ -9,7 +9,6 @@ class App extends Component {
 			<FlatList />
 			<Map />
 		</div>
-
 		);
 	}
 
