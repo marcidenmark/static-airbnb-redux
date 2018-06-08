@@ -1,29 +1,52 @@
-import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
+import React from "react";
+import GoogleMapReact from "google-map-react";
 
-class Map extends Component {
-	render () {
-		let marker = null;
-		let center = { lat: 48.856614, lng: 2.352222 };
+import { connect } from "react-redux";
 
-	return (
-		<div className="col-sm-5" style={{height: '100vh'}}>
-			<GoogleMapReact
-				center={center}
-				defaultZoom={15}>
-				{marker}
-        		</GoogleMapReact>
-		</div>
-	);
-	}
+const Map = (props) => {
+  let marker = null;
+  let center = { lat: 48.856614, lng: 2.352222 };
+
+  if (props.selectedFlat) {
+    marker = (
+      <div
+        style={{
+          width: "20px",
+          height: "20px",
+          backgroundColor: "red",
+          borderRadius: "50%"
+        }}
+        lat={props.selectedFlat.lat}
+        lng={props.selectedFlat.lng}
+      />
+    );
+    center = {
+      lat: props.selectedFlat.lat,
+      lng: props.selectedFlat.lng
+    };
+  }
+
+  return (
+    <div className="col-sm-5" style={{ height: "100vh" }}>
+      <GoogleMapReact center={center} defaultZoom={15}>
+        {marker}
+      </GoogleMapReact>
+    </div>
+  );
+};
+
+function mapStateToProps(state) {
+  return {
+    selectedFlat: state.selectedFlat
+  };
 }
 
-export default Map;
-//line 5 also js--
-//how you inline style in a jsx file
+export default connect(mapStateToProps)(Map);
+
+//className... style={{height: '100vh'}}
+//how you inline style in a jsx file-- it's an object in JS.
 //the style properties are the css
-//line 9 style is js.
-//
+// Or using a const.
 		// const style = {
 		// 	height: "100vh"
 		// };
