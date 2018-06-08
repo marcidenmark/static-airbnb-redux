@@ -33,14 +33,14 @@ class Flat extends Component {
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators(
-		{ selectFlat: selectedFlat} ,
+		{ selectFlat: selectFlat } ,
 		dispatch
 		);
 }
 
- function mapStateToProps(state) {
+ function mapStateToProps(State) {
 	return {
-		selectedFlat: state.selectedFlat
+		selectedFlat: State.selectedFlat
 	};
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Flat);
