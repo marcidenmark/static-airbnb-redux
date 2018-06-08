@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Flat from '../components/flat';
+import Flat from '../containers/flat';
 
 import { setFlats } from '../actions';
 
