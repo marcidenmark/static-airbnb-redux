@@ -20,7 +20,7 @@ class Flat extends Component {
 		}
 
 		return (
-		<div className="card flat" style={style}
+		<div className={classes} style={style}
 			onClick={this.handleClick} >
 			<div className="card-description">
 			    <h2>{this.props.flat.name}</h2>
