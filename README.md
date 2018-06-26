@@ -1,5 +1,7 @@
 # react-boilerplate
 
+Note there are two branches to this repo. The second one has middleware added.
+
 Simple react starter with the following config:
 
 - React, ReactDOM
