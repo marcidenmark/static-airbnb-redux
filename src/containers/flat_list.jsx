@@ -27,13 +27,7 @@ class FlatList extends Component {
 			);
 	}
 }
-// dispatch argumment to triggger action
-function mapDispatchToProps(dispatch) {
-	return bindActionCreators(
-    		{ setFlats: setFlats },
-    		dispatch
-    		);
-	}
+
 // below mapping Redux state to the store
 // Here we are returning the updated flats
 function mapReduxStateToProps(reduxState) {
@@ -41,6 +35,15 @@ function mapReduxStateToProps(reduxState) {
 		flats: reduxState.flats
 	};
 }
+
+// dispatch argumment to triggger action
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators(
+    		{ setFlats: setFlats },
+    		dispatch
+    		);
+	}
+
 
 
 export default connect(mapReduxStateToProps, mapDispatchToProps) (FlatList);
