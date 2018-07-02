@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { logger } from 'redux-logger';
 import  reduxPromise  from 'redux-promise';
 import '../assets/stylesheets/application.scss';
@@ -16,7 +16,8 @@ const reducers = combineReducers({
 	selectedFlat: selectedFlatReducer
 	//keys / reducers
 });
-const middlewares = applyMiddleware(logger, reduxPromise);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const middlewares = composeEnhancers(applyMiddleware(logger, reduxPromise));
 
 const root = document.getElementById('root');
 ReactDOM.render(
@@ -24,6 +25,6 @@ ReactDOM.render(
 		<App />
 	</Provider>,
 root);
-
+// line 23 {} will be initialized here.
 
 
